@@ -5,12 +5,55 @@
 
 h1 {
     font-family: 'Marck Script', cursive;
+    font-size: 55px;
+    margin-top: 0;
+    margin-bottom: 20px;
 }
 
 h2, h3, h4, h5, h6 {
     font-family: 'Josefin Slab', serif;
+    margin-top: 0;
+}
+
+h2 {
+    text-decoration: underline;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    right: 10px;
+}
+
+.subtitle {
+    font-family: 'Josefin Slab', serif;
+    font-size: 25px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+hr {
+    border-width: 2px;
+    border-style: solid;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.episode {
+    min-height: 340px;
+    max-width: 1000px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #99aca8;
+
+    .audio-player {
+        border: none;
+        float: left;
+        margin-right: 10px;
+    }
 }
