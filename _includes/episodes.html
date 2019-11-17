@@ -5,9 +5,14 @@
     async function loadEpisodes() {
         const episodeListDiv = document.querySelector('#episode-list');
         try {
-            let parser = new RSSParser();
-            let feed = await parser.parseURL('https://spiritsandtongues.libsyn.com/rss');
-            renderEpisodes(feed, episodeListDiv);
+            const response = await window.fetch('https://spiritsandtongues.libsyn.com/rss');
+            if (response.ok) {
+                const feedXml = await response.text();
+                const feed = await new RSSParser().parseString(feedXml);
+                renderEpisodes(feed, episodeListDiv);
+            } else {
+                showError(episodeListDiv);
+            }
         } catch (error) {
             showError(episodeListDiv);
         }
