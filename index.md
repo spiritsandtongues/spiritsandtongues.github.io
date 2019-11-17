@@ -13,22 +13,4 @@ title: Spirits and Tongues
 
 ## Episodes
 
-{% assign episodes = site.episodes | sort: "number" | reverse %}
-{% assign currentTime = 'now' | date: '%s' %}
-{% for episode in episodes %}
-
-{% assign episodeTime = episode.date | date: '%s' %}
-{% if currentTime >= episodeTime %}
-<div class="episode">
-<h3>Episode {{episode.number}}: {{episode.title}}</h3>
-
-{% capture episode-id %}
-{{episode.episodeId}}
-{% endcapture %}
-{% include audio-player.html id=episode-id %}
-
-{{episode.content}}
-</div>
-{% endif %}
-
-{% endfor %}
+{% include episodes.html %}

@@ -17,8 +17,5 @@ markdown: kramdown
 highligher: rouge
 timezone: America/Chicago
 
-collections:
-    - episodes
-
 kramdown:
   input: GFM

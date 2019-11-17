@@ -1,0 +1,42 @@
+<div id="episode-list">Loading...</div>
+<script type="text/javascript">
+    window.onload = loadEpisodes;
+
+    async function loadEpisodes() {
+        const episodeListDiv = document.querySelector('#episode-list');
+        try {
+            let parser = new RSSParser();
+            let feed = await parser.parseURL('https://spiritsandtongues.libsyn.com/rss');
+            renderEpisodes(feed, episodeListDiv);
+        } catch (error) {
+            showError(episodeListDiv);
+        }
+    }
+
+    function renderEpisodes(feed, episodeListDiv) {
+        episodeListDiv.innerHTML = '';
+        for (const episode of feed.items) {
+            const episodeDiv = document.createElement('div');
+            episodeDiv.className = 'episode';
+
+            const episodeTitle = document.createElement('h3')
+            episodeTitle.innerText = episode.title;
+            episodeDiv.appendChild(episodeTitle);
+
+            const episodeLink = document.createElement('a');
+            episodeLink.href = episode.enclosure.url;
+            episodeLink.innerText = 'Play episode';
+            episodeDiv.appendChild(episodeLink);
+
+            const episodeSummary = document.createElement('span');
+            episodeSummary.innerHTML = episode.content;
+            episodeDiv.appendChild(episodeSummary);
+
+            episodeListDiv.appendChild(episodeDiv);
+        }
+    }
+
+    function showError(episodeListDiv) {
+        episodeListDiv.innerHTML = 'Unable to load episodes.';
+    }
+</script>
