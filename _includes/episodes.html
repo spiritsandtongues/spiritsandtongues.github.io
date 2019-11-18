@@ -1,4 +1,6 @@
-<div id="episode-list">Loading...</div>
+<div class="container">
+    <div id="episode-list">Loading...</div>
+</div>
 <script type="text/javascript">
     window.onload = loadEpisodes;
 
@@ -30,11 +32,15 @@
         const episodeDiv = document.createElement('div');
         episodeDiv.className = 'episode';
 
-        renderPlayer(episode, index, episodeDiv);
+        const coverArt = document.createElement('img');
+        coverArt.src = episode.itunes.image;
+        episodeDiv.appendChild(coverArt);
 
         const episodeTitle = document.createElement('h3')
         episodeTitle.innerText = episode.title;
         episodeDiv.appendChild(episodeTitle);
+
+        renderPlayer(episode, index, episodeDiv);
 
         const episodeSummary = document.createElement('span');
         episodeSummary.innerHTML = episode.content;
@@ -47,20 +53,16 @@
         const playerDiv = document.createElement('div');
         playerDiv.className = 'player';
 
-        const coverArt = document.createElement('img');
-        coverArt.src = episode.itunes.image;
-        playerDiv.appendChild(coverArt);
-
         const playButton = document.createElement('button');
         playButton.className = 'amplitude-play';
         playButton.setAttribute('data-amplitude-song-index', String(index));
-        playButton.innerText = 'Play';
+        playButton.innerHTML = '<i class="fas fa-play"></i>';
         playerDiv.appendChild(playButton);
 
         const pauseButton = document.createElement('button');
         pauseButton.className = 'amplitude-pause';
         pauseButton.setAttribute('data-amplitude-song-index', String(index));
-        pauseButton.innerText = 'Pause';
+        pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         playerDiv.appendChild(pauseButton);
 
         episodeDiv.appendChild(playerDiv);

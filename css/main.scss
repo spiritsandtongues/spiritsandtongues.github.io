@@ -22,6 +22,7 @@ h2 {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
+    margin: 10px;
 }
 
 .logo {
@@ -44,16 +45,25 @@ hr {
     margin-bottom: 20px;
 }
 
-.episode {
-    min-height: 340px;
-    max-width: 1000px;
-    margin-bottom: 20px;
-    padding: 10px;
-    background-color: #99aca8;
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
-    .audio-player {
-        border: none;
-        float: left;
-        margin-right: 10px;
+#episode-list {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 1200px;
+
+    .episode {
+        padding: 10px;
+        margin: 10px;
+        width: calc(100% / 3 - 40px);
+        background-color: #99aca8;
+
+        img {
+            width: 100%;
+        }
     }
 }
