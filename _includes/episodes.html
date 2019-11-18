@@ -9,7 +9,8 @@
             if (response.ok) {
                 const feedXml = await response.text();
                 const feed = await new RSSParser().parseString(feedXml);
-                renderEpisodes(feed, episodeListDiv);
+                renderEpisodes(feed.items, episodeListDiv);
+                initializePlayer(feed.items);
             } else {
                 showError(episodeListDiv);
             }
@@ -18,27 +19,59 @@
         }
     }
 
-    function renderEpisodes(feed, episodeListDiv) {
+    function renderEpisodes(episodes, episodeListDiv) {
         episodeListDiv.innerHTML = '';
-        for (const episode of feed.items) {
-            const episodeDiv = document.createElement('div');
-            episodeDiv.className = 'episode';
-
-            const episodeTitle = document.createElement('h3')
-            episodeTitle.innerText = episode.title;
-            episodeDiv.appendChild(episodeTitle);
-
-            const episodeLink = document.createElement('a');
-            episodeLink.href = episode.enclosure.url;
-            episodeLink.innerText = 'Play episode';
-            episodeDiv.appendChild(episodeLink);
-
-            const episodeSummary = document.createElement('span');
-            episodeSummary.innerHTML = episode.content;
-            episodeDiv.appendChild(episodeSummary);
-
-            episodeListDiv.appendChild(episodeDiv);
+        for (let i = 0; i < episodes.length; i++) {
+            renderEpisode(episodes[i], i, episodeListDiv);
         }
+    }
+
+    function renderEpisode(episode, index, episodeListDiv) {
+        const episodeDiv = document.createElement('div');
+        episodeDiv.className = 'episode';
+
+        renderPlayer(episode, index, episodeDiv);
+
+        const episodeTitle = document.createElement('h3')
+        episodeTitle.innerText = episode.title;
+        episodeDiv.appendChild(episodeTitle);
+
+        const episodeSummary = document.createElement('span');
+        episodeSummary.innerHTML = episode.content;
+        episodeDiv.appendChild(episodeSummary);
+
+        episodeListDiv.appendChild(episodeDiv);
+    }
+
+    function renderPlayer(episode, index, episodeDiv) {
+        const playerDiv = document.createElement('div');
+        playerDiv.className = 'player';
+
+        const coverArt = document.createElement('img');
+        coverArt.src = episode.itunes.image;
+        playerDiv.appendChild(coverArt);
+
+        const playButton = document.createElement('button');
+        playButton.className = 'amplitude-play';
+        playButton.setAttribute('data-amplitude-song-index', String(index));
+        playButton.innerText = 'Play';
+        playerDiv.appendChild(playButton);
+
+        const pauseButton = document.createElement('button');
+        pauseButton.className = 'amplitude-pause';
+        pauseButton.setAttribute('data-amplitude-song-index', String(index));
+        pauseButton.innerText = 'Pause';
+        playerDiv.appendChild(pauseButton);
+
+        episodeDiv.appendChild(playerDiv);
+    }
+
+    function initializePlayer(episodes) {
+        const episodesList = [];
+        for (const episode of episodes) {
+            episodesList.push({url: episode.enclosure.url});
+        }
+        Amplitude.init({songs: episodesList});
     }
 
     function showError(episodeListDiv) {
