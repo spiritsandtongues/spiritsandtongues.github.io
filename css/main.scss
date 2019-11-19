@@ -65,5 +65,57 @@ hr {
         img {
             width: 100%;
         }
+
+        .player {
+            .amplitude-time-remaining {
+                float: right;
+            }
+
+            .amplitude-song-slider {
+                display: block;
+                width: 100%;
+            }
+
+            .amplitude-play-pause {
+                &.amplitude-paused {
+                    .fas::before {
+                        content: '\f04b';
+                    }
+                }
+
+                &.amplitude-playing {
+                    .fas::before {
+                        content: '\f04c';
+                    }
+                }
+            }
+
+            .amplitude-playback-speed {
+                margin-left: 20px;
+
+                &.amplitude-playback-speed-10 {
+                    .speed::before {
+                        content: 'x1.0';
+                    }
+                }
+
+                &.amplitude-playback-speed-15 {
+                    .speed::before {
+                        content: 'x1.5';
+                    }
+                }
+
+                &.amplitude-playback-speed-20 {
+                    .speed::before {
+                        content: 'x2.0';
+                    }
+                }
+            }
+
+            .amplitude-volume-slider {
+                float: right;
+                width: 30%;
+            }
+        }
     }
 }

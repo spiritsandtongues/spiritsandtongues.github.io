@@ -53,17 +53,49 @@
         const playerDiv = document.createElement('div');
         playerDiv.className = 'player';
 
+        const currentTime = document.createElement('span');
+        currentTime.className = 'amplitude-current-time';
+        currentTime.setAttribute('data-amplitude-song-index', String(index));
+        playerDiv.appendChild(currentTime);
+
+        const timeRemaining = document.createElement('span');
+        timeRemaining.className = 'amplitude-time-remaining';
+        timeRemaining.setAttribute('data-amplitude-song-index', String(index));
+        playerDiv.appendChild(timeRemaining);
+
+        const songSlider = document.createElement('input');
+        songSlider.setAttribute('type', 'range');
+        songSlider.className = 'amplitude-song-slider';
+        songSlider.setAttribute('data-amplitude-song-index', String(index));
+        playerDiv.appendChild(songSlider);
+
+        const skipBackButton = document.createElement('button');
+        skipBackButton.className = 'skip';
+        skipBackButton.innerHTML = '<i class="fas fa-undo-alt"></i>'
+        skipBackButton.onclick = () => skipByAmount(index, -15);
+        playerDiv.appendChild(skipBackButton);
+
         const playButton = document.createElement('button');
-        playButton.className = 'amplitude-play';
+        playButton.className = 'amplitude-play-pause';
         playButton.setAttribute('data-amplitude-song-index', String(index));
-        playButton.innerHTML = '<i class="fas fa-play"></i>';
+        playButton.innerHTML = '<i class="fas"></i>';
         playerDiv.appendChild(playButton);
 
-        const pauseButton = document.createElement('button');
-        pauseButton.className = 'amplitude-pause';
-        pauseButton.setAttribute('data-amplitude-song-index', String(index));
-        pauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-        playerDiv.appendChild(pauseButton);
+        const skipForwardButton = document.createElement('button');
+        skipForwardButton.className = 'skip';
+        skipForwardButton.innerHTML = '<i class="fas fa-redo-alt"></i>'
+        skipForwardButton.onclick = () => skipByAmount(index, 15);
+        playerDiv.appendChild(skipForwardButton);
+
+        const playbackSpeedButton = document.createElement('button');
+        playbackSpeedButton.className = 'amplitude-playback-speed';
+        playbackSpeedButton.innerHTML = '<span class="speed"></span>'
+        playerDiv.appendChild(playbackSpeedButton);
+
+        const volumeSlider = document.createElement('input');
+        volumeSlider.setAttribute('type', 'range');
+        volumeSlider.className = 'amplitude-volume-slider';
+        playerDiv.appendChild(volumeSlider);
 
         episodeDiv.appendChild(playerDiv);
     }
@@ -78,5 +110,15 @@
 
     function showError(episodeListDiv) {
         episodeListDiv.innerHTML = 'Unable to load episodes.';
+    }
+
+    function skipByAmount(songIndex, seconds) {
+        let targetTime;
+        if (Amplitude.getActiveIndex() === songIndex) {
+            targetTime = Amplitude.getSongPlayedSeconds() + seconds;
+        } else {
+            targetTime = seconds;
+        }
+        Amplitude.skipTo(targetTime, songIndex)
     }
 </script>
