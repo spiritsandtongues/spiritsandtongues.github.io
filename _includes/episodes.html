@@ -32,19 +32,19 @@
         const episodeDiv = document.createElement('div');
         episodeDiv.className = 'episode';
 
+        const headerDiv = document.createElement('div');
+        headerDiv.className = 'header';
+        episodeDiv.appendChild(headerDiv);
+
         const coverArt = document.createElement('img');
         coverArt.src = episode.itunes.image;
-        episodeDiv.appendChild(coverArt);
+        headerDiv.appendChild(coverArt);
 
-        const episodeTitle = document.createElement('h3')
+        const episodeTitle = document.createElement('h2')
         episodeTitle.innerText = episode.title;
-        episodeDiv.appendChild(episodeTitle);
+        headerDiv.appendChild(episodeTitle);
 
         renderPlayer(episode, index, episodeDiv);
-
-        const episodeSummary = document.createElement('span');
-        episodeSummary.innerHTML = episode.content;
-        episodeDiv.appendChild(episodeSummary);
 
         episodeListDiv.appendChild(episodeDiv);
     }

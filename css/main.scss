@@ -22,20 +22,38 @@ h2 {
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    margin: 10px;
+    margin: 0;
 }
 
-.logo {
-    position: absolute;
-    top: 30px;
-    right: 10px;
+header {
+    padding: 20px;
+    background-color: #f0ead6;
+
+    .logo {
+        position: absolute;
+        top: 45px;
+        right: 20px;
+    }
+
+    .subtitle {
+        font-family: 'Josefin Slab', serif;
+        font-size: 25px;
+        margin-bottom: 10px;
+        margin-left: 50px;
+    }
 }
 
-.subtitle {
-    font-family: 'Josefin Slab', serif;
-    font-size: 25px;
-    margin-top: -10px;
-    margin-bottom: 20px;
+nav {
+    padding: 20px;
+    background-color: black;
+
+    a {
+        font-family: 'Josefin Slab', serif;
+        font-size: 27px;
+        font-weight: 700;
+        color: #f0ead6;
+        margin-right: 20px;
+    }
 }
 
 hr {
@@ -49,6 +67,9 @@ hr {
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: #99aca8;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #episode-list {
@@ -57,16 +78,29 @@ hr {
     max-width: 1200px;
 
     .episode {
-        padding: 10px;
         margin: 10px;
-        width: calc(100% / 3 - 40px);
+        width: calc(100% / 3 - 44px);
         background-color: #99aca8;
+        border: 2px solid black;
 
-        img {
-            width: 100%;
+        .header {
+            padding: 10px;
+
+            img {
+                width: 100%;
+            }
+
+            h2 {
+                margin-bottom: 5px;
+                font-size: 23px;
+            }
         }
 
         .player {
+            background-color: darken(#99aca8, 15%);
+            color: black;
+            padding: 10px;
+
             .amplitude-time-remaining {
                 float: right;
             }
@@ -74,9 +108,33 @@ hr {
             .amplitude-song-slider {
                 display: block;
                 width: 100%;
+                height: 4px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                -webkit-appearance: none;
+                background: black;
+                outline: none;
+                cursor: pointer;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    background: black;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 10px;;
+                }
             }
 
             .amplitude-play-pause {
+                color: #f0ead6;
+                background-color: black;
+                border: none;
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                font-size: 17px;
+                outline: none;
+
                 &.amplitude-paused {
                     .fas::before {
                         content: '\f04b';
@@ -90,8 +148,28 @@ hr {
                 }
             }
 
+            .skip {
+                color: #f0ead6;
+                background-color: black;
+                border: none;
+                width: 30px;
+                height: 22px;
+                border-radius: 5px;
+                margin-left: 10px;
+                margin-right: 10px;
+                outline: none;
+            }
+
             .amplitude-playback-speed {
+                color: #f0ead6;
+                background-color: black;
+                border: none;
+                width: 45px;
+                height: 25px;
+                border-radius: 5px;
+                font-size: 17px;
                 margin-left: 20px;
+                outline: none;
 
                 &.amplitude-playback-speed-10 {
                     .speed::before {
@@ -115,6 +193,21 @@ hr {
             .amplitude-volume-slider {
                 float: right;
                 width: 30%;
+                height: 4px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                -webkit-appearance: none;
+                background: black;
+                outline: none;
+                cursor: pointer;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    background: black;
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 10px;;
+                }
             }
         }
     }
