@@ -92,10 +92,18 @@
         playbackSpeedButton.innerHTML = '<span class="speed"></span>'
         playerDiv.appendChild(playbackSpeedButton);
 
+        const volumeDiv = document.createElement('div');
+        volumeDiv.className = 'volume';
+        playerDiv.appendChild(volumeDiv);
+
+        const volumeIcon = document.createElement('i');
+        volumeIcon.className = 'fas fa-volume-up';
+        volumeDiv.appendChild(volumeIcon);
+
         const volumeSlider = document.createElement('input');
         volumeSlider.setAttribute('type', 'range');
         volumeSlider.className = 'amplitude-volume-slider';
-        playerDiv.appendChild(volumeSlider);
+        volumeDiv.appendChild(volumeSlider);
 
         episodeDiv.appendChild(playerDiv);
     }
