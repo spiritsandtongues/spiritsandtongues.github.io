@@ -1,0 +1,7 @@
+version: "3"
+services:
+  website:
+    build: .
+    command: ["bundle", "update"]
+    volumes:
+      - .:/srv/jekyll
