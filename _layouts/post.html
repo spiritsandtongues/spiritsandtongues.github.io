@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<nav id="site-navigation">
+    <ul>
+        <li><a href="/">Podcast</a></li>
+        <li><a href="/blog">Blog</a></li>
+    </ul>
+</nav>
+<section class="container">
+    <article id="text-panel" class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <h1 itemprop="name headline">{{page.title}}</h1>
+        <time datetime="{{page.date | date_to_xmlschema}}" itemprop="datePublished">
+            {{page.date | date: "%B %-d, %Y"}}
+        </time>
+        <div itemprop="articleBody">
+            {{content}}
+        </div>
+    </article>
+</section>
