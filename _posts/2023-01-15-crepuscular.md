@@ -63,11 +63,13 @@ Rabbits are, by the way, a great example of a <b><i>crepuscular</b></i> animal, 
 
 I now have a better idea of what <b><i>crepuscular</b></i> means. To prevent future brain hauntings where I struggle to remember what ‘crepuscular’ means, I have been practicing with this knowledge and created some new mental pictures of ‘crepuscular’ to flesh out this definition.
 
-The first cool breeze of evening touches my skin as twinkling signals of fireflies emerge in the grass.
+<i>The first cool breeze of evening touches my skin as twinkling signals of fireflies emerge in the grass.</i>
 
-An exhausted Boy Wonder looks up after a long night of fighting evil. The first rays of dawn signal a brief respite from his labors until darkness falls again over Gotham City.
+<i>An exhausted Boy Wonder looks up after a long night of fighting evil. The first rays of dawn signal a brief respite from his labors until darkness falls again over Gotham City.</i>
 
-Wolf-watchers in Yellowstone National Park huddle with binoculars and thermoses of hot coffee in the wee hours of a winter morning, waiting to catch a glimpse of a well-furred pack loping from one part of their territory to the next before the sun fully rises.
+![<"Holy Crepuscular Rays, Batman!">](/images/crepuscular.png)
 
-You shrug into your jacket and step out the door. The porch light flicks on behind you. You climb into your car with that perfect blend of a contented buzz from interacting with people you love and the anticipation of returning to a space where you can take off your pants. Your friend or maybe your mom calls out a final farewell: “Watch out for deer!”
-And that’s its own kind of “I love you” in a lovely, crepuscular sort of way.
+<i>Wolf-watchers in Yellowstone National Park huddle with binoculars and thermoses of hot coffee in the wee hours of a winter morning, waiting to catch a glimpse of a well-furred pack loping from one part of their territory to the next before the sun fully rises.</i>
+
+<i>You shrug into your jacket and step out the door. The porch light flicks on behind you. You climb into your car with that perfect blend of a contented buzz from interacting with people you love and the anticipation of returning to a space where you can take off your pants. Your friend or maybe your mom calls out a final farewell: “Watch out for deer!"<br />
+And that’s its own kind of “I love you” in a lovely, crepuscular sort of way.</i>
