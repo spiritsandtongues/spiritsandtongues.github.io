@@ -476,5 +476,13 @@ hr {
             display: inline-block;
             margin-bottom: 40px;
         }
+
+        p:has(img) {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+        }
     }
 }
